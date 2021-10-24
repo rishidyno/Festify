@@ -1,24 +1,31 @@
-package com.example.festify;
+package com.example.festify.Fragments;
 
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowInsets;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
+import com.example.festify.R;
 import com.example.festify.databinding.FragmentSplashBinding;
 
-public class SplashFragment extends AppCompatActivity {
+public class SplashFragment extends Fragment {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    @Override
+    public View onCreateView(
+            LayoutInflater inflater, ViewGroup container,
+            Bundle savedInstanceState
+    ) {
 
         FragmentSplashBinding splashBinding;
 
@@ -50,7 +57,7 @@ public class SplashFragment extends AppCompatActivity {
 
                     @Override
                     public void run() {
-                        startActivity(new Intent(getApplicationContext(),FirstFragment.class));
+                        startActivity(new Intent(getApplicationContext(), FirstFragment.class));
                         setContentView(R.layout.fragment_first);
                         finish();
                     }

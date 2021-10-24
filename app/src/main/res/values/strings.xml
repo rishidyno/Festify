@@ -11,4 +11,7 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="splash_activity">Splash Activity</string>
     <string name="splash_screen_title">Festify</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home_page_welcome_text">Welcome  to the fest...</string>
 </resources>

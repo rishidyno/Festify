@@ -1,4 +1,4 @@
-package com.example.festify;
+package com.example.festify.Activity;
 
 import android.os.Bundle;
 import android.view.Menu;
@@ -12,6 +12,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.example.festify.R;
 import com.example.festify.databinding.ActivityMainBinding;
 import com.google.android.material.snackbar.Snackbar;
 
