@@ -58,7 +58,6 @@ public class SplashFragment extends AppCompatActivity {
             }
 
             @Override
-
             public void onAnimationRepeat(Animation animation) {
 
             }
