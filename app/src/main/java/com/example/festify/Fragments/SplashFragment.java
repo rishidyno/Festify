@@ -1,3 +1,4 @@
+/*
 package com.example.festify.Fragments;
 
 import android.content.Intent;
@@ -20,7 +21,6 @@ import com.example.festify.databinding.FragmentSplashBinding;
 
 public class SplashFragment extends Fragment {
 
-    @Override
     @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
@@ -72,3 +72,4 @@ public class SplashFragment extends Fragment {
 
     }
 }
+*/
