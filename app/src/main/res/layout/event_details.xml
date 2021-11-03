@@ -91,10 +91,12 @@
                 android:layout_margin="10dp"
                 android:backgroundTint="#85bb5c"
                 android:gravity="center"
-                android:text="@string/event_register_button"
+                android:text="register"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cardView">
+
+            </com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -114,9 +116,9 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:layout_marginLeft="0dp"
                         android:layout_marginTop="5dp"
-                        android:layout_gravity="center"
                         android:text="About"
                         android:textColor="@color/black"
                         android:textSize="35sp" />
@@ -127,11 +129,11 @@
                         android:layout_height="match_parent"
                         android:layout_margin="10dp"
                         android:ems="10"
-                        android:textColor="#0E0C0C"
                         android:gravity="start|top"
                         android:inputType="textMultiLine"
                         android:padding="10dp"
-                        android:text="@string/lorem" />
+                        android:text="@string/lorem"
+                        android:textColor="#0E0C0C" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
