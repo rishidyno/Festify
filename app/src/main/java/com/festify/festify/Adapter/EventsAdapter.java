@@ -23,11 +23,11 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder
         this.eventList = eventList;
         this.context = context;
     }
-    public void updateEvents(List<EventModel> eventList) {
-        eventList.clear();
-        this.eventList = eventList;
-        notifyDataSetChanged();
-    }
+//    public void updateEvents(List<EventModel> eventList) {
+//        eventList.clear();
+//        this.eventList = eventList;
+//        notifyDataSetChanged();
+//    }
     @NonNull
     @Override
     public EventsAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

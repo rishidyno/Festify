@@ -1,20 +1,23 @@
 package com.festify.festify.model;
 
 public class EventModel {
+    private String _id;
     private String eventName;
     private String eventData;
     private String eventTime;
     private String eventLocation;
     private String eventDescription;
     private String eventImage;
-
-    public EventModel(String eventName, String eventData, String eventTime, String eventLocation, String eventDescription, String eventImage) {
+    private String __v;
+    public EventModel(String _id,String eventName, String eventData, String eventTime, String eventLocation, String eventDescription, String eventImage,String __v) {
+        this._id=_id;
         this.eventName = eventName;
         this.eventData = eventData;
         this.eventTime = eventTime;
         this.eventLocation = eventLocation;
         this.eventDescription = eventDescription;
         this.eventImage = eventImage;
+        this.__v=__v;
     }
 
     public String getEventName() {
