@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.festify.festify.Adapter.EventsAdapter;
 import com.festify.festify.R;
 import com.festify.festify.databinding.FragmentHomeBinding;
 
@@ -35,6 +36,7 @@ public class HomeFragment extends Fragment {
                 textView.setText(s);
             }
         });
+        binding.eventListRecyclerView.setAdapter(new EventsAdapter(getCon1text()));
         return root;
     }
 
