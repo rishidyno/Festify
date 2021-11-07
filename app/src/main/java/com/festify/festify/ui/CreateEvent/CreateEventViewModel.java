@@ -34,10 +34,6 @@ public class CreateEventViewModel extends ViewModel {
         });
     }
 
-//    public LiveData<EventModel> postEvent(){
-//
-//    }
-
     @Override
     protected void onCleared() {
         super.onCleared();

@@ -76,6 +76,4 @@ public class HomeViewModel extends ViewModel {
         super.onCleared();
         Disposables.empty();
     }
-
-
 }
