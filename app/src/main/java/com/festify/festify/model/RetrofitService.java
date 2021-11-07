@@ -4,7 +4,8 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitService {
-    private static final String BASE_URL = "http://34.131.78.211";
+//    private static final String BASE_URL = "http://34.131.78.211";
+    private static final String BASE_URL = "https://festify-iiitl.herokuapp.com/";
     private static RetrofitService instance = null;
     private static RetrofitApi api;
 
