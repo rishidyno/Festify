@@ -39,7 +39,7 @@ public class HomeViewModel extends ViewModel {
     public synchronized void fetchEvents() {
         loading.setValue(true);
         error.setValue(false);
-        Call<JsonObject> call = RetrofitService.getInstance().getMyapi().getEvents();
+        Call<JsonObject> call = RetrofitService.getInstance().getMyApi().getEvents();
         call.enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {

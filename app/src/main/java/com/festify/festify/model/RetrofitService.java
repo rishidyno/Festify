@@ -10,7 +10,9 @@ public class RetrofitService {
     private static RetrofitApi api;
 
     RetrofitService() {
-        Retrofit retrofit = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create()).build();
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create()).build();
         api = retrofit.create(RetrofitApi.class);
     }
 
@@ -19,7 +21,7 @@ public class RetrofitService {
             instance = new RetrofitService();
         return instance;
     }
-    public RetrofitApi getMyapi(){
+    public RetrofitApi getMyApi(){
         return api;
     }
 }

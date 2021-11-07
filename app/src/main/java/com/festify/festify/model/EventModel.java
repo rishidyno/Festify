@@ -1,5 +1,7 @@
 package com.festify.festify.model;
 
+import android.text.Editable;
+
 public class EventModel {
     private String _id;
     private String eventName;
