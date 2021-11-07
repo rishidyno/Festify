@@ -1,44 +1,46 @@
 package com.festify.festify.ui.CreateEvent;
 
-import android.text.Editable;
-
-import androidx.lifecycle.LiveData;
+import android.util.Log;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
-
 import com.festify.festify.model.EventModel;
+import com.festify.festify.model.EventPostModel;
 import com.festify.festify.model.RetrofitService;
+import io.reactivex.disposables.Disposables;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class CreateEventViewModel extends ViewModel {
 
-    int count = 0;
-    MutableLiveData<EventModel> newEvent;
-    MutableLiveData<String> eventName;
-    MutableLiveData<String> startDate;
-    MutableLiveData<String> endDate;
-    MutableLiveData<String> eventVenue;
-    MutableLiveData<String> eventDescription;
 
-    CreateEventViewModel() {
-        newEvent = new MutableLiveData<>(null);
-        eventName = new MutableLiveData<>(null);
-        startDate = new MutableLiveData<>(null);
-        endDate = new MutableLiveData<>(null);
-        eventVenue = new MutableLiveData<>(null);
-        eventDescription = new MutableLiveData<>(null);
+    public CreateEventViewModel() {
     }
 
-    public LiveData<EventModel> postEvent(String eventName,
-                                          String startDate, String endDate,
-                                          String eventVenue, String eventDescription,String eventLocation) {
-        String _id = Integer.toString(count++), __v = null;
-        EventModel eventModel = new EventModel(_id, eventName, startDate
-                , endDate, eventVenue, eventDescription, null,eventLocation);
-        RetrofitService.getInstance().getMyApi().addEvent(eventModel);
-        return newEvent;
+    public synchronized void postEvent(String eventName,
+                                       String startDate, String endDate,
+                                       String eventVenue, String eventDescription, String eventLocation) {
+        Call<EventPostModel> call = RetrofitService.getInstance().getMyApi().addEvent(new EventPostModel(eventName, startDate, endDate, eventVenue, eventDescription, eventLocation));
+        call.enqueue(new Callback<EventPostModel>() {
+            @Override
+            public void onResponse(Call<EventPostModel> call, Response<EventPostModel> response) {
+                Log.d("CreateEventViewModel", "onResponse: " + response.body());
+            }
+
+            @Override
+            public void onFailure(Call<EventPostModel> call, Throwable t) {
+                Log.d("CreateEventViewModel", "onFailure: " + t.getMessage());
+            }
+        });
     }
 
 //    public LiveData<EventModel> postEvent(){
 //
 //    }
+
+    @Override
+    protected void onCleared() {
+        super.onCleared();
+        Disposables.empty();
+    }
 }

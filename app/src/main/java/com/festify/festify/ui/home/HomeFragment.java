@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
@@ -22,7 +23,7 @@ import com.festify.festify.model.EventModel;
 
 import java.util.List;
 
-public class HomeFragment extends Fragment implements View.OnClickListener {
+public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
     private FragmentHomeBinding binding;
@@ -74,7 +75,15 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             }
         });
 
-        binding.btnCreateEvent.setOnClickListener(this);
+        binding.btnCreateEvent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavHostFragment.findNavController(HomeFragment.this).navigate(R.id.action_navigation_home_to_createEventFragment);
+//                NavHostFragment.findNavController(this).navigate
+//                Navigation.findNavController(v).
+//                        navigate(R.id.action_navigation_home_to_createEventFragment);
+            }
+        });
         return root;
     }
 //
@@ -84,11 +93,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 //
 //    }
 
-    @Override
-    public void onClick(View view) {
-        Navigation.findNavController(view).
-                navigate(R.id.action_navigation_home_to_createEventFragment);
-    }
 
     @Override
     public void onDestroyView() {
