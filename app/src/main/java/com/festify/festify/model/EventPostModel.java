@@ -1,28 +1,20 @@
 package com.festify.festify.model;
 
-import android.text.Editable;
-
-import com.google.gson.annotations.SerializedName;
-
-public class EventModel {
-    private String _id;
+public class EventPostModel {
     private String eventName;
-    @SerializedName("eventDate")
-    private String eventData;
+    private String eventDate;
     private String eventTime;
     private String eventLocation;
     private String eventDescription;
     private String eventImage;
-    private String __v;
-    public EventModel(String _id,String eventName, String eventData, String eventTime, String eventLocation, String eventDescription, String eventImage,String __v) {
-        this._id=_id;
+
+    public EventPostModel(String eventName, String eventDate, String eventTime, String eventLocation, String eventDescription, String eventImage) {
         this.eventName = eventName;
-        this.eventData = eventData;
+        this.eventDate = eventDate;
         this.eventTime = eventTime;
         this.eventLocation = eventLocation;
         this.eventDescription = eventDescription;
         this.eventImage = eventImage;
-        this.__v=__v;
     }
 
     public String getEventName() {
@@ -34,11 +26,11 @@ public class EventModel {
     }
 
     public String getEventData() {
-        return eventData;
+        return eventDate;
     }
 
-    public void setEventData(String eventData) {
-        this.eventData = eventData;
+    public void setEventData(String eventDate) {
+        this.eventDate = eventDate;
     }
 
     public String getEventTime() {

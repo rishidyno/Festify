@@ -39,7 +39,7 @@ public class HomeViewModel extends ViewModel {
     public synchronized void fetchEvents() {
         loading.setValue(true);
         error.setValue(false);
-        Call<JsonObject> call = RetrofitService.getInstance().getMyapi().getEvents();
+        Call<JsonObject> call = RetrofitService.getInstance().getMyApi().getEvents();
         call.enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
@@ -51,7 +51,7 @@ public class HomeViewModel extends ViewModel {
                     Log.i("HomeViewModel", "onResponse: " + gson.fieldNamingStrategy());
                     EventList list_event = new EventList();
                     for (int i = 0; i < array.size(); i++) {
-                        JsonObject object = array.get(0).getAsJsonObject();
+                        JsonObject object = array.get(i).getAsJsonObject();
                         EventModel model = gson.fromJson(object.toString(), EventModel.class);
                         list_event.addEvent(model);
                     }
@@ -76,6 +76,4 @@ public class HomeViewModel extends ViewModel {
         super.onCleared();
         Disposables.empty();
     }
-
-
 }
