@@ -29,6 +29,6 @@
     <fragment
         android:id="@+id/createEventFragment"
         android:name="com.festify.festify.ui.CreateEvent.CreateEventFragment"
-        android:label="fragment_create_event"
+        android:label="Create new event"
         tools:layout="@layout/fragment_create_event" />
 </navigation>

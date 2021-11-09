@@ -47,7 +47,6 @@ public class CreateEventFragment extends Fragment {
                     Toast.makeText(getActivity(), "Please enter all the values", Toast.LENGTH_SHORT).show();
                     return;
                 }
-//                 calling a method to post the data and passing our name and job.
                 createEventViewModel.postEvent(eventName.getText().toString(), eventStartDate.getText().toString()
                         , eventEndDate.getText().toString(), eventVenue.getText().toString()
                         , eventDescription.getText().toString(), eventLocation.getText().toString());

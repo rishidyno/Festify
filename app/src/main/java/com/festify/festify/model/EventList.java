@@ -2,7 +2,6 @@ package com.festify.festify.model;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.List;
 
 public class EventList {
     private List<EventModel> eventList;

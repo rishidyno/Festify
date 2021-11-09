@@ -23,11 +23,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder
         this.eventList = eventList;
         this.context = context;
     }
-//    public void updateEvents(List<EventModel> eventList) {
-//        eventList.clear();
-//        this.eventList = eventList;
-//        notifyDataSetChanged();
-//    }
+
     @NonNull
     @Override
     public EventsAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -48,8 +44,9 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView eventName,startDate,endDate;
+        TextView eventName, startDate, endDate;
         ImageView eventImage;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             eventName = itemView.findViewById(R.id.event_name);
