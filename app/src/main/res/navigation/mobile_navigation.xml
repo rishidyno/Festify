@@ -43,7 +43,7 @@
         <action
             android:id="@+id/action_createEventFragment_to_navigation_home"
             app:destination="@id/navigation_home"
-            app:popUpTo="@id/createEventFragment"
+            app:popUpTo="@id/navigation_home"
             app:popUpToInclusive="true" />
     </fragment>
 </navigation>
