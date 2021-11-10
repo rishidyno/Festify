@@ -16,6 +16,15 @@
     </fragment>
 
     <fragment
+        android:id="@+id/event_details"
+        android:label="@string/event_details"
+        tools:layout="@layout/event_details" >
+        <action
+            android:id="@+id/action_navigation_home_to_event_details"
+            app:destination="@id/event_details" />
+    </fragment>
+
+    <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.festify.festify.ui.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
@@ -30,5 +39,11 @@
         android:id="@+id/createEventFragment"
         android:name="com.festify.festify.ui.CreateEvent.CreateEventFragment"
         android:label="Create new event"
-        tools:layout="@layout/fragment_create_event" />
+        tools:layout="@layout/fragment_create_event" >
+        <action
+            android:id="@+id/action_createEventFragment_to_navigation_home"
+            app:destination="@id/navigation_home"
+            app:popUpTo="@id/navigation_home"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

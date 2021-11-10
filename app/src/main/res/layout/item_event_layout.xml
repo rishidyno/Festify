@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardCornerRadius="@dimen/_5sdp"
-    app:cardElevation="@dimen/_6sdp"
+    app:cardElevation="@dimen/_4sdp"
     app:cardUseCompatPadding="true">
 
     <LinearLayout
@@ -13,6 +13,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/event_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|top"
+            android:alpha="1"
+            android:background="#2196F3"
+            android:gravity="center"
+            android:text="@string/event_name"
+            android:textSize="@dimen/_25sdp"/>
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -25,25 +36,15 @@
                 android:alpha="0.8"
                 android:contentDescription="@string/image_contentDescription"
                 android:scaleType="centerCrop"
-                android:src="@mipmap/ic_launcher"> <!--transparency of view -->
+                android:src="@drawable/image_quinox">
+                <!--transparency of view -->
             </ImageView>
-
-            <TextView
-                android:id="@+id/event_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center|top"
-                android:alpha="1"
-                android:gravity="center"
-                android:text="@string/event_name"
-                android:textSize="@dimen/_25sdp">
-
-            </TextView>
         </FrameLayout>
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:backgroundTintMode="src_in">
 
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -102,9 +103,10 @@
             <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center|right"
-                android:layout_margin="@dimen/_5sdp"
-                android:backgroundTint="#85bb5c"
+                android:layout_gravity="center|end"
+                android:layout_marginVertical="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:backgroundTint="#FFDE03"
                 android:gravity="center"
                 android:text="@string/event_register_button">
 
