@@ -50,9 +50,9 @@ public class HomeViewModel extends ViewModel {
                     JsonArray array = response.body().getAsJsonArray("data");
                     Log.i("HomeViewModel", "onResponse: " + gson.fieldNamingStrategy());
                     EventList list_event = new EventList();
-                    for (int i = 0; i < array.size(); i++) {
+                    for (int i = array.size()-1; i>=0; i--) {
                         JsonObject object = array.get(i).getAsJsonObject();
-                        EventModel model = gson.fromJson(object.toString(), EventModel.class);
+                        EventModel model = gson.fromJson(object, EventModel.class);
                         list_event.addEvent(model);
                     }
                     eventList.setValue(list_event.getEventList());

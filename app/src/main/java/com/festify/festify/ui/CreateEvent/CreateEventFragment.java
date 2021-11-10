@@ -10,8 +10,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.fragment.NavHostFragment;
 
+import com.festify.festify.R;
 import com.festify.festify.databinding.FragmentCreateEventBinding;
+import com.google.android.material.snackbar.Snackbar;
 
 public class CreateEventFragment extends Fragment {
 
@@ -39,12 +42,19 @@ public class CreateEventFragment extends Fragment {
                         || eventStartDate.getText().toString().isEmpty()
                         || eventEndDate.getText().toString().isEmpty()
                         || eventVenue.getText().toString().isEmpty()
-                        || eventDescription.toString().isEmpty()) {
+                        || eventDescription.toString().isEmpty()
+                        || eventLocation.toString().isEmpty()) {
                     Toast.makeText(getActivity(), "Please enter all the values", Toast.LENGTH_SHORT).show();
                 } else {
                     createEventViewModel.postEvent(eventName.getText().toString(), eventStartDate.getText().toString()
                             , eventEndDate.getText().toString(), eventVenue.getText().toString()
                             , eventDescription.getText().toString(), eventLocation.getText().toString());
+
+                    Snackbar.make(container, "New Event Added", Snackbar.LENGTH_LONG)
+                            .show();
+
+                    NavHostFragment.findNavController(CreateEventFragment.this)
+                            .navigate(R.id.action_createEventFragment_to_navigation_home);
                 }
             }
         });
