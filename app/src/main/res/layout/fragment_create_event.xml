@@ -90,7 +90,7 @@
                     android:id="@+id/et_start_date"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="text"
+                    android:inputType="date"
                     android:textColor="#85bb5c"
                     android:textSize="@dimen/_15sdp" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -113,7 +113,7 @@
                     android:id="@+id/et_end_date"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="text"
+                    android:inputType="date"
                     android:textColor="#85bb5c"
                     android:textSize="@dimen/_15sdp" />
             </com.google.android.material.textfield.TextInputLayout>
