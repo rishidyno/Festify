@@ -8,13 +8,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.festify.festify.databinding.FragmentCreateEventBinding;
-import com.festify.festify.model.EventModel;
 
 public class CreateEventFragment extends Fragment {
 
@@ -28,12 +25,11 @@ public class CreateEventFragment extends Fragment {
         mFragmentCreateEventBinding = FragmentCreateEventBinding.inflate(inflater, container, false);
         View root = mFragmentCreateEventBinding.getRoot();
         EditText eventName = mFragmentCreateEventBinding.etEventName;
-        EditText eventStartDate = mFragmentCreateEventBinding.etEventName;
-        EditText eventEndDate = mFragmentCreateEventBinding.etEventName;
-        EditText eventVenue = mFragmentCreateEventBinding.etEventName;
-        EditText eventDescription = mFragmentCreateEventBinding.etEventName;
+        EditText eventStartDate = mFragmentCreateEventBinding.etStartDate;
+        EditText eventEndDate = mFragmentCreateEventBinding.etStartDate;
+        EditText eventVenue = mFragmentCreateEventBinding.etVenue;
+        EditText eventDescription = mFragmentCreateEventBinding.etEventDescription;
         EditText eventLocation = mFragmentCreateEventBinding.etEventLocation;
-        EditText eventCreateButton = mFragmentCreateEventBinding.etEventName;
 
         mFragmentCreateEventBinding.btnCreateEvent.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,11 +41,11 @@ public class CreateEventFragment extends Fragment {
                         || eventVenue.getText().toString().isEmpty()
                         || eventDescription.toString().isEmpty()) {
                     Toast.makeText(getActivity(), "Please enter all the values", Toast.LENGTH_SHORT).show();
-                    return;
+                } else {
+                    createEventViewModel.postEvent(eventName.getText().toString(), eventStartDate.getText().toString()
+                            , eventEndDate.getText().toString(), eventVenue.getText().toString()
+                            , eventDescription.getText().toString(), eventLocation.getText().toString());
                 }
-                createEventViewModel.postEvent(eventName.getText().toString(), eventStartDate.getText().toString()
-                        , eventEndDate.getText().toString(), eventVenue.getText().toString()
-                        , eventDescription.getText().toString(), eventLocation.getText().toString());
             }
         });
         return root;
