@@ -19,7 +19,7 @@ public class CreateEventViewModel extends ViewModel {
 
     public synchronized void postEvent(String eventName,
                                        String startDate, String endDate,
-                                       String eventVenue, String eventDescription, String eventLocation) {
+                                       String eventVenue,  String eventLocation ,String eventDescription) {
         Call<EventPostModel> call = RetrofitService.getInstance().getMyApi().addEvent(new EventPostModel(eventName, startDate, endDate, eventVenue, eventDescription, eventLocation));
         call.enqueue(new Callback<EventPostModel>() {
             @Override
