@@ -12,6 +12,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.provider.Settings;
+import android.util.Base64;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,12 +40,15 @@ import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 import com.karumi.dexter.listener.single.PermissionListener;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.List;
 
 public class CreateEventFragment extends Fragment {
 
     CreateEventViewModel createEventViewModel;
     FragmentCreateEventBinding mFragmentCreateEventBinding;
+    Bitmap eventImage = null;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -79,8 +84,7 @@ public class CreateEventFragment extends Fragment {
                     Toast.makeText(getActivity(), "Please enter all the values", Toast.LENGTH_SHORT).show();
                 } else {
                     createEventViewModel.postEvent(eventName.getText().toString(), eventStartDate.getText().toString()
-                            , eventEndDate.getText().toString(), eventVenue.getText().toString()
-                            , eventDescription.getText().toString(), eventLocation.getText().toString());
+                            , eventEndDate.getText().toString(), eventLocation.getText().toString(), eventDescription.getText().toString(), bitmapToBase64(eventImage));
 
                     Snackbar.make(container, "New Event Added", Snackbar.LENGTH_LONG)
                             .show();
@@ -90,6 +94,17 @@ public class CreateEventFragment extends Fragment {
             }
         });
         return root;
+    }
+
+    private String bitmapToBase64(Bitmap eventImage) {
+
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        eventImage.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+        byte[] byteArray = byteArrayOutputStream.toByteArray();
+        String s= Base64.encodeToString(byteArray, Base64.DEFAULT);
+        Log.d("Base64", s);
+        return s;
+
     }
 
     void customImageSelectionDialog() {
@@ -190,7 +205,7 @@ public class CreateEventFragment extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == Activity.RESULT_OK) {
             if (requestCode == 1) {
-                Bitmap eventImage = (Bitmap) data.getExtras().get("data");
+                eventImage = (Bitmap) data.getExtras().get("data");
                 Glide.with(requireActivity())
                         .load(eventImage)
                         .centerCrop()
@@ -203,7 +218,11 @@ public class CreateEventFragment extends Fragment {
                         .load(selectedPhotoUri)
                         .centerCrop()
                         .into(mFragmentCreateEventBinding.ivEventImage);
-
+                try {
+                    eventImage = MediaStore.Images.Media.getBitmap(getContext().getContentResolver(), selectedPhotoUri);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 mFragmentCreateEventBinding.ivAddEventImage.setImageDrawable(getResources().getDrawable(R.drawable.ic_vector_edit));
             }
         }
