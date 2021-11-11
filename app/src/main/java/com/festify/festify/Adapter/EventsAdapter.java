@@ -15,6 +15,12 @@ import com.festify.festify.model.EventModel;
 
 import java.util.List;
 
+/**
+ * inherits from RecyclerView.Adapter
+ * RecyelerView.Adapter accepts a ViewHolder data
+ * generics in list and  RecyclerView.Adapter<EventsAdapter.ViewHolder>
+ * this keyword
+ */
 public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder> {
     List<EventModel> eventList;
     Context context;
@@ -42,6 +48,8 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder
         return eventList.size();
     }
 
+    // nested class
+    // RecyclerView.ViewHolder inheritance
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView eventName, startDate, endDate;

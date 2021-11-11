@@ -11,12 +11,13 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+// inheritance with ViewModel
 public class CreateEventViewModel extends ViewModel {
 
 
     public CreateEventViewModel() {
     }
-
+    //synchronized
     public synchronized void postEvent(String eventName,
                                        String startDate, String endDate,
                                        String eventVenue, String eventDescription, String eventLocation) {
@@ -34,6 +35,12 @@ public class CreateEventViewModel extends ViewModel {
         });
     }
 
+    /**
+     * super keyword
+     * override keyword
+     * protected keyword
+     * closed for modification but open for extension
+     */
     @Override
     protected void onCleared() {
         super.onCleared();

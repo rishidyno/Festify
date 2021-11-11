@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EventList {
+    //how is this data type represedeted and what is generics?
     private List<EventModel> eventList;
 
     public EventList(List<EventModel> eventList) {

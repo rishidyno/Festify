@@ -11,6 +11,9 @@ import androidx.navigation.ui.NavigationUI;
 import com.festify.festify.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+/**
+ * inheritance from AppCompatActivity
+ */
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
@@ -19,6 +22,11 @@ public class MainActivity extends AppCompatActivity {
             R.id.navigation_home, R.id.navigation_dashboard
             , R.id.navigation_notifications).build();
 
+    /**why is super .onCreate() is called ?
+     * design principle so that everything
+     * open for extension for closed for modification
+     */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,8 +34,8 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        BottomNavigationView navView = findViewById(R.id.nav_view);
-
+        BottomNavigationView navView = binding.navView;
+        // this keyword
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
@@ -35,8 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
-        return NavigationUI.navigateUp(navController, appBarConfiguration)
-                || super.onSupportNavigateUp();
+        onBackPressed();
+        return true;
     }
 }

@@ -7,6 +7,8 @@ import com.google.gson.annotations.SerializedName;
 public class EventModel {
     private String _id;
     private String eventName;
+    //what is serialized name?
+    //because the json response uses   different name the model
     @SerializedName("eventDate")
     private String eventData;
     private String eventTime;
@@ -15,6 +17,7 @@ public class EventModel {
     private String eventImage;
     private String __v;
     public EventModel(String _id,String eventName, String eventData, String eventTime, String eventLocation, String eventDescription, String eventImage,String __v) {
+        //what is this?
         this._id=_id;
         this.eventName = eventName;
         this.eventData = eventData;
