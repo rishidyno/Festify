@@ -77,7 +77,7 @@ public class HomeFragment extends Fragment {
         return root;
     }
 
-
+    // garbage colleciotn efficiency by making binding null
     @Override
     public void onDestroyView() {
         super.onDestroyView();

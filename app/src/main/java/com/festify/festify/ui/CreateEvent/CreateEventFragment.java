@@ -16,11 +16,14 @@ import com.festify.festify.R;
 import com.festify.festify.databinding.FragmentCreateEventBinding;
 import com.google.android.material.snackbar.Snackbar;
 
+// inheritance Fragment
 public class CreateEventFragment extends Fragment {
 
     CreateEventViewModel createEventViewModel;
     FragmentCreateEventBinding mFragmentCreateEventBinding;
 
+    // override onCreateView from Fragment
+    //annotation so that LayoutInflater is not null
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         createEventViewModel = new ViewModelProvider(this).get(CreateEventViewModel.class);
