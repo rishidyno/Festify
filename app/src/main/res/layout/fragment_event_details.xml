@@ -130,7 +130,7 @@
                         android:textColor="@color/black"
                         android:textSize="35sp" />
 
-                    <EditText
+                    <TextView
                         android:id="@+id/editTextTextMultiLine2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
