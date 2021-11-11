@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:clickable="true"
     app:cardCornerRadius="@dimen/_5sdp"
     app:cardElevation="@dimen/_4sdp"
     app:cardUseCompatPadding="true">
@@ -23,7 +24,7 @@
             android:background="#2196F3"
             android:gravity="center"
             android:text="@string/event_name"
-            android:textSize="@dimen/_25sdp"/>
+            android:textSize="@dimen/_25sdp" />
 
         <FrameLayout
             android:layout_width="match_parent"
