@@ -13,4 +13,7 @@
     <string name="event_details">Event description</string>
     <string name="event_venue">Venue</string>
     <string name="event_location">Event Location</string>
+    <string name="title_select_image">Select Image</string>
+    <string name="lbl_camera">camera</string>
+    <string name="lbl_gallery">gallary</string>
 </resources>
