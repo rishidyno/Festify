@@ -1,15 +1,19 @@
 package com.festify.festify.ui.home;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -50,7 +54,13 @@ public class HomeFragment extends Fragment {
                     textView.setVisibility(View.VISIBLE);
                 } else {
                     textView.setVisibility(View.GONE);
-                    EventsAdapter adapter = new EventsAdapter(homeViewModel.eventList.getValue(), getContext());
+                    EventsAdapter adapter = new EventsAdapter(homeViewModel.eventList.getValue(), getContext(), new EventsAdapter.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(int position) {
+                            Log.d("HomeFragment", "onItemClick: " + position);
+                            Navigation.findNavController(root).navigate(R.id.action_navigation_home_to_eventDetailFragment);
+                        }
+                    });
                     binding.eventListRecyclerView.setAdapter(adapter);
                     binding.eventListRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
                 }
