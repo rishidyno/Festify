@@ -53,7 +53,7 @@ public class CreateEventFragment extends Fragment {
         View root = mFragmentCreateEventBinding.getRoot();
         EditText eventName = mFragmentCreateEventBinding.etEventName;
         EditText eventStartDate = mFragmentCreateEventBinding.etStartDate;
-        EditText eventEndDate = mFragmentCreateEventBinding.etStartDate;
+        EditText eventEndDate = mFragmentCreateEventBinding.etEndDate;
         EditText eventVenue = mFragmentCreateEventBinding.etVenue;
         EditText eventDescription = mFragmentCreateEventBinding.etEventDescription;
         EditText eventLocation = mFragmentCreateEventBinding.etEventLocation;
@@ -115,6 +115,7 @@ public class CreateEventFragment extends Fragment {
                                                   startActivityForResult(intent, 1);
                                               }
                                           }
+
                                           @Override
                                           public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions,
                                                                                          PermissionToken token) {
@@ -177,11 +178,11 @@ public class CreateEventFragment extends Fragment {
                         }
                     }
                 }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.dismiss();
-            }
-        }).show();
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                }).show();
     }
 
     @Override
