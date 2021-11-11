@@ -62,7 +62,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder
         public void bind(EventModel eventModel) {
             eventName.setText(eventModel.getEventName());
             startDate.setText(eventModel.getEventData());
-            endDate.setText(eventModel.getEventData());
+            endDate.setText(eventModel.getEventTime());
         }
 
         @Override
